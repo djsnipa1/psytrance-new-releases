@@ -10,7 +10,7 @@ RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | s
   deb-src http://security.ubuntu.com/ubuntu maverick-security universe \n\
   deb http://security.ubuntu.com/ubuntu maverick-security multiverse \n\
   deb-src http://security.ubuntu.com/ubuntu maverick-security multiverse' | sudo tee -a /etc/apt/sources.list > /dev/null \
-&& curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
+  && curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
 
 RUN sudo apt update && sudo apt install -y \
     neovim \
