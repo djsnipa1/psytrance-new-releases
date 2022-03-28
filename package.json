@@ -1,0 +1,29 @@
+{
+  "name": "gitpod-starter-html",
+  "version": "1.0.0",
+  "description": "a template for starting an html project in gitpod.io",
+  "main": "index.html",
+  "scripts": {
+    "serve-gitpod": "browser-sync --watch --server --no-open --no-ui --listen 0.0.0.0",
+    "serve": "browser-sync -f *.html -f *.js -f *.css",
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/djsnipa1/gitpod-starter-html"
+  },
+  "author": "Chad Boyce",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/djsnipa1/gitpod-starter-html/issues"
+  },
+  "homepage": "https://github.com/djsnipa1/gitpod-starter-html#readme",
+  "devDependencies": {
+    "@types/puppeteer": "^5.4.5",
+    "browser-sync": "^2.26.14",
+    "servor": "^4.0.2"
+  },
+  "dependencies": {
+    "puppeteer": "^13.5.1"
+  }
+}
