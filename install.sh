@@ -18,7 +18,11 @@ sudo apt install -y neovim
 
 curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
 
+echo "added githubcli keyring"
+
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+
+echo "added githubcli sources"
 
 sudo echo $'deb http://archive.ubuntu.com/ubuntu/ maverick-updates main universe restricted 
 deb-src http://archive.ubuntu.com/ubuntu/ maverick-updates main universe restricted 
@@ -28,6 +32,8 @@ deb http://security.ubuntu.com/ubuntu maverick-security universe
 deb-src http://security.ubuntu.com/ubuntu maverick-security universe 
 deb http://security.ubuntu.com/ubuntu maverick-security multiverse 
 deb-src http://security.ubuntu.com/ubuntu maverick-security multiverse' | sudo tee -a /etc/apt/sources.list > /dev/null
+
+echo "added long list of sources"
 
 sudo apt update && sudo apt install -y \
   neovim \
@@ -73,5 +79,8 @@ sudo apt update && sudo apt install -y \
   libatk-bridge2.0-0 \
   libgbm-dev
 
+echo "installed shit!"
+
 sudo rm -rf /var/lib/apt/lists/*
 
+echo "finished!"
