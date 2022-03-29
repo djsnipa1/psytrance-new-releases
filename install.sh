@@ -3,7 +3,7 @@
 #CONF_DIR=~/deps/nvim
 #mkdir -p ~/deps
 
-sudo add-apt-repository ppa:neovim-ppa/stable
+sudo add-apt-repository -y ppa:neovim-ppa/stable
 sudo apt install -y software-properties-common
 sudo apt update -y
 sudo apt install -y neovim
@@ -20,16 +20,16 @@ curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo 
 
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
 
-sudo echo $'deb http://archive.ubuntu.com/ubuntu/ maverick-updates main universe restricted \n\
-deb-src http://archive.ubuntu.com/ubuntu/ maverick-updates main universe restricted \n\
-deb http://security.ubuntu.com/ubuntu maverick-security main restricted \n\
-deb-src http://security.ubuntu.com/ubuntu maverick-security main restricted \n\
-deb http://security.ubuntu.com/ubuntu maverick-security universe \n\
-deb-src http://security.ubuntu.com/ubuntu maverick-security universe \n\
-deb http://security.ubuntu.com/ubuntu maverick-security multiverse \n\
+sudo echo $'deb http://archive.ubuntu.com/ubuntu/ maverick-updates main universe restricted 
+deb-src http://archive.ubuntu.com/ubuntu/ maverick-updates main universe restricted 
+deb http://security.ubuntu.com/ubuntu maverick-security main restricted 
+deb-src http://security.ubuntu.com/ubuntu maverick-security main restricted 
+deb http://security.ubuntu.com/ubuntu maverick-security universe 
+deb-src http://security.ubuntu.com/ubuntu maverick-security universe 
+deb http://security.ubuntu.com/ubuntu maverick-security multiverse 
 deb-src http://security.ubuntu.com/ubuntu maverick-security multiverse' | sudo tee -a /etc/apt/sources.list > /dev/null
 
-RUN sudo apt update && sudo apt install -y \
+sudo apt update && sudo apt install -y \
   neovim \
   gh \
   gconf-service \
