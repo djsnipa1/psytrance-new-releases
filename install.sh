@@ -15,14 +15,12 @@ sudo apt install -y neovim
 #ln -s $CONF_DIR ~/.config/nvim
 
 #sudo update-alternatives --config editor
-
 curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
-
-echo "added githubcli keyring"
-
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+sudo apt update -y
+sudo apt install -y gh
 
-echo "added githubcli sources"
+echo "added githubcli"
 
 sudo echo $'deb http://archive.ubuntu.com/ubuntu/ maverick-updates main universe restricted 
 deb-src http://archive.ubuntu.com/ubuntu/ maverick-updates main universe restricted 
@@ -37,7 +35,6 @@ echo "added long list of sources"
 
 sudo apt update && sudo apt install -y \
   neovim \
-  gh \
   gconf-service \
   libasound2 \
   libatk1.0-0 \
