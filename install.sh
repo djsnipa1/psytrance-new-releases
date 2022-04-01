@@ -45,6 +45,7 @@ sudo apt install -y \
   neovim \
   nnn \
   ranger \
+  lazygit \
   caca-utils \
   highlight \
   atool \
