@@ -107,4 +107,12 @@ echo "chezmoi installed"
 # install lazynpm
 curl https://i.jpillora.com/jesseduffield/lazynpm!! | bash
 
+# install eget
+curl https://zyedidia.github.io/eget.sh | sh
+sudo cp ./eget /usr/bin
+rm -rf ./eget
+
+# install age
+sudo eget FiloSottile/age --to /usr/bin
+
 echo "finished!"
