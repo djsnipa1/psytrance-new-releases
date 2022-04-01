@@ -41,12 +41,10 @@ echo "added long list of sources"
 sudo apt update
 echo "updated apt"
 
-sudo apt install -y \
-  neovim \
+sudo apt install -y neovim \
   nnn \
   ranger \
   lazygit \
-  age \
   caca-utils \
   highlight \
   atool \
