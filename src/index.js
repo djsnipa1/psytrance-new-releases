@@ -16,11 +16,12 @@ async function scrape() {
     "body > form > table > tbody > tr > td > div > div"
   );
   var text = await page.evaluate((testElement) => testElement.textContent, testElement);
-
+  console.log(text)
   // await page.click("input[type=checkbox]")
 
   const rows = await page.$$('body > form > table > tbody > tr > td:nth-child(2) > div:nth-child(2) > div');
   const genres = await page.$$('.genrename');
+  const namez = await page.$$('.album');
 
   for (let i = 0; i < genres.length; i++) {
     const genre = genres[i];
@@ -34,10 +35,17 @@ async function scrape() {
 
     const label = await row.$eval('a:nth-child(3)', element => element.textContent);
     const value = await row.$eval('a:nth-child(5)', element => element.textContent);
+    const href = await row.$eval('a:nth-child(5)', element => element.getAttribute('href'));
 
-    console.log('label: ', label, 'value: ', value)
+    console.log('label:', label, 'value:', value, 'href:', href)
   }
 
+  // for (let i = 0; i < namez.length; i++) {
+  //   const name = namez[i];
+
+  //   const namezName = await name.$eval('b', x => x.textContent);
+  //   console.log('namez: ', namezName)
+  // }
   var names = await page.evaluate(() => {
     return Array.from(document.querySelectorAll(".album")).map(x => x.textContent)
   })
