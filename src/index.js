@@ -1,16 +1,22 @@
 const puppeteer = require("puppeteer");
 
 async function scrape() {
+  // open browser  
+  // use this so it works in gitpod 
   const browser = await puppeteer.launch({
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
+  // this was the original code before the gitpod fix
   // const browser = await puppeteer.launch({});
+
   const url = "https://everynoise.com/new_releases_by_genre.cgi?genre=psychedelic%20trance&region=US"
 
+  // opens a new page to scrape
   const page = await browser.newPage();
 
-  // await page.goto("https://www.thesaurus.com/browse/smart");
+  // goes to supplied url
   await page.goto(url);
+
   var testElement = await page.waitForSelector(
     // "#meanings > div.css-ixatld.e15rdun50 > ul > li:nth-child(1) > a"
     "body > form > table > tbody > tr > td > div > div"
