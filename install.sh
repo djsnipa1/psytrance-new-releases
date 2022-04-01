@@ -46,6 +46,7 @@ sudo apt install -y \
   nnn \
   ranger \
   lazygit \
+  age \
   caca-utils \
   highlight \
   atool \
