@@ -3,10 +3,12 @@
 #CONF_DIR=~/deps/nvim
 #mkdir -p ~/deps
 
+sudo sed -i '50,$d' /etc/apt/sources.list
+
 # add neovim
 sudo add-apt-repository -y ppa:neovim-ppa/stable
 # add lazygit 
-sudo add-apt-repository ppa:lazygit-team/release
+sudo add-apt-repository -y ppa:lazygit-team/release
 sudo apt install -y software-properties-common
 sudo apt update -y
 sudo apt install -y neovim
@@ -36,7 +38,10 @@ deb-src http://security.ubuntu.com/ubuntu maverick-security multiverse' | sudo t
 
 echo "added long list of sources"
 
-sudo apt update && sudo apt install -y \
+sudo apt update
+echo "updated apt"
+
+sudo apt install -y \
   neovim \
   nnn \
   ranger \
