@@ -3,7 +3,10 @@
 #CONF_DIR=~/deps/nvim
 #mkdir -p ~/deps
 
+# add neovim
 sudo add-apt-repository -y ppa:neovim-ppa/stable
+# add lazygit 
+sudo add-apt-repository ppa:lazygit-team/release
 sudo apt install -y software-properties-common
 sudo apt update -y
 sudo apt install -y neovim
@@ -35,6 +38,14 @@ echo "added long list of sources"
 
 sudo apt update && sudo apt install -y \
   neovim \
+  nnn \
+  ranger \
+  caca-utils \
+  highlight \
+  atool \
+  w3m \
+  poppler-utils \
+  mediainfo \
   gconf-service \
   libasound2 \
   libatk1.0-0 \
@@ -79,5 +90,14 @@ sudo apt update && sudo apt install -y \
 echo "installed shit!"
 
 sudo rm -rf /var/lib/apt/lists/*
+
+# install chezmoi
+sh -c "$(curl -fsLS chezmoi.io/get)"
+sudo cp ./bin/chezmoi /usr/bin
+rm -rf ./bin
+echo "chezmoi installed"
+
+# install lazynpm
+curl https://i.jpillora.com/jesseduffield/lazynpm!! | bash
 
 echo "finished!"
