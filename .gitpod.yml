@@ -14,3 +14,10 @@ image:
 vscode:
   extensions:
     - gulajavaministudio.mayukaithemevsc
+    - eamodio.gitlens
+    - naumovs.color-highlight
+    - bierner.color-info
+    - anseki.vscode-color
+    - EditorConfig.EditorConfig
+    - christian-kohler.path-intellisense
+    - evgeniypeshkov.syntax-highlighter

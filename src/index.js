@@ -16,14 +16,18 @@ async function scrape() {
 
   // goes to supplied url
   await page.goto(url);
+  await Promise.all([
+    // page.click('button[type=submit]'),
+    page.click("input[type=checkbox]"),
+    page.waitForNavigation({ waitUntil: 'networkidle2' })
+  ]);
 
   var testElement = await page.waitForSelector(
     // "#meanings > div.css-ixatld.e15rdun50 > ul > li:nth-child(1) > a"
     "body > form > table > tbody > tr > td > div > div"
   );
   var text = await page.evaluate((testElement) => testElement.textContent, testElement);
-  console.log(text)
-  // await page.click("input[type=checkbox]")
+  // console.log(text)
 
   const rows = await page.$$('body > form > table > tbody > tr > td:nth-child(2) > div:nth-child(2) > div');
   const genres = await page.$$('.genrename');
