@@ -1,14 +1,6 @@
 const puppeteer = require('puppeteer');
 
 let tracks = [];
-const tracksDictNew = new Map();
-
-/*
-for(var index in myArray) {
-  var item = myArray[index];
-// do something with item from the array
-}
-*/
 
 async function scrape() {
   // open browser  
@@ -47,41 +39,19 @@ async function scrape() {
   for (let i = 0; i < rows.length; i++) {
     const row = rows[i];
 
-    const label = await row.$eval('a:nth-child(3)', element => element.textContent);
-    const value = await row.$eval('a:nth-child(5)', element => element.textContent);
+    const artist = await row.$eval('a:nth-child(3)', element => element.textContent);
+    const track = await row.$eval('a:nth-child(5)', element => element.textContent);
     const href = await row.$eval('a:nth-child(5)', element => element.getAttribute('href'));
 
+    console.log(artist, ' - ', track, ': ', href);
     tracks.push(href);
-
-    let index = i;
-    tracksDictNew.set(i, [['artist' = label], ['track', value], ['href', href]])
-    tracksDictNew.set({ dictArray });
-    // tracksDictNew.set('Track', value);
-    // tracksDictNew.set('Href', href);
-
-    // console.log('label:', label, 'value:', value, 'href:', href);
   }
 
-  // const namez = await page.$$('.album');
-  // for (let i = 0; i < namez.length; i++) {
-  //   const name = namez[i];
+  // console.log(rows.length);
+  // console.log(genres.length);
 
-  //   const namezName = await name.$eval('b', x => x.textContent);
-  //   console.log('namez: ', namezName)
-  // }
-  let names = await page.evaluate(() => {
-    return Array.from(document.querySelectorAll('.album')).map(x => x.textContent);
-  });
-  console.log(names);
-  console.log(rows.length);
-  console.log(genres.length);
+  console.log('------ TRACKS -------');
   console.log(tracks);
-  console.log(tracksDictNew);
-
-  console.log('------ RETURN MAP -------');
-  tracksDictNew.forEach(function (value, key) {
-    console.log(key + ' = ' + value);
-  });
 
   // console.log(text);
   browser.close();
