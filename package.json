@@ -5,6 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
+    "test": "node src/test.js",
     "serve-gitpod": "browser-sync --watch --server --no-open --no-ui --listen 0.0.0.0",
     "serve": "browser-sync -f *.html -f *.js -f *.css"
   },
@@ -19,10 +20,11 @@
   },
   "homepage": "https://github.com/djsnipa1/psytrance-new-releases#readme",
   "dependencies": {
+    "node-fetch": "^2.6.7",
     "puppeteer": "^13.5.1",
     "spotify-web-api-node": "^5.0.2"
   },
-   "devDependencies": {
+  "devDependencies": {
     "@types/puppeteer": "^5.4.5",
     "browser-sync": "^2.26.14",
     "eslint": "^8.12.0"
