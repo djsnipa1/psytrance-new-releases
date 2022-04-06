@@ -103,19 +103,20 @@ rm -rf ./bin
 echo "chezmoi installed"
 
 # neovim config
-git clone https://github.com/djsnipa/dotfiles-chezmoi
-cd dotfiles-chezmoi
-cd private_dot_config
-cp nvim ~/.config
+git clone https://github.com/djsnipa1/dotfiles-chezmoi
+cd ./dotfiles-chezmoi || { echo "Failure"; exit 1; }
+cd ./private_dot_config || { echo "Failure"; exit 1; }
+cp -r ./nvim ~/.config
+cp -r ./private_fish ~/.config/fish
 cd ../..
-rm -rf private_dot_config
-echo "installed neovim config"
+rm -rf ./dotfiles-chezmoi
+echo "installed config files"
 
 # install lazynpm
 curl https://i.jpillora.com/jesseduffield/lazynpm!! | bash
 
 # install eget
-curl https://zyedidia.github.io/eget.sh | sh
+sudo curl https://zyedidia.github.io/eget.sh | sh
 sudo cp ./eget /usr/bin
 rm -rf ./eget
 
