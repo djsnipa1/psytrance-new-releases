@@ -102,6 +102,15 @@ sudo cp ./bin/chezmoi /usr/bin
 rm -rf ./bin
 echo "chezmoi installed"
 
+# neovim config
+git clone https://github.com/djsnipa/dotfiles-chezmoi
+cd dotfiles-chezmoi
+cd private_dot_config
+cp nvim ~/.config
+cd ../..
+rm -rf private_dot_config
+echo "installed neovim config"
+
 # install lazynpm
 curl https://i.jpillora.com/jesseduffield/lazynpm!! | bash
 
