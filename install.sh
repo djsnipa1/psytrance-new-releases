@@ -45,6 +45,7 @@ sudo apt install -y neovim \
   nnn \
   ranger \
   lazygit \
+  figlet\
   caca-utils \
   highlight \
   atool \
@@ -123,18 +124,10 @@ rm -rf ./eget
 # install age
 sudo eget FiloSottile/age --to /usr/bin
 
-# install bearings
-sudo eget liamg/bearings --to /usr/bin
-bearings install -s fish
-/usr/bin/fish
-echo $'#bearings-auto:start
-function fish_prompt
-    bearings prompt -s fish -e $status -d $CMD_DURATION -j (count (jobs -p))
-end
-#bearings-auto:end' | tee -a > ~/.config/fish/config.fish
+# install fisher
+curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 
 # install fonts 
-
 declare -a fonts=(
     Monoid    
     Iosevka
