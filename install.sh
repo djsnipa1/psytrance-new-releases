@@ -123,4 +123,42 @@ rm -rf ./eget
 # install age
 sudo eget FiloSottile/age --to /usr/bin
 
+# install bearings
+sudo eget liamg/bearings --to /usr/bin
+bearings install -s fish
+/usr/bin/fish
+echo $'#bearings-auto:start
+function fish_prompt
+    bearings prompt -s fish -e $status -d $CMD_DURATION -j (count (jobs -p))
+end
+#bearings-auto:end' | tee -a ~/.config/fish/config.fish
+
+# install fonts 
+
+declare -a fonts=(
+    Monoid    
+    Iosevka
+)
+
+version='2.1.0'
+fonts_dir="${HOME}/.local/share/fonts"
+
+if [[ ! -d "$fonts_dir" ]]; then
+    mkdir -p "$fonts_dir"
+fi
+
+for font in "${fonts[@]}"; do
+    zip_file="${font}.zip"
+    download_url="https://github.com/ryanoasis/nerd-fonts/releases/download/v${version}/${zip_file}"
+    echo "Downloading $download_url"
+    wget "$download_url"
+    unzip "$zip_file" -d "$fonts_dir"
+    rm "$zip_file"
+done
+
+find "$fonts_dir" -name '*Windows Compatible*' -delete
+
+fc-cache -fv
+
+
 echo "finished!"
