@@ -1,5 +1,5 @@
 var SpotifyWebApi = require('spotify-web-api-node');
-const express = require('express')
+const express = require('express');
 
 // This file is copied from: https://github.com/thelinmichael/spotify-web-api-node/blob/master/examples/tutorial/00-get-access-token.js
 
@@ -65,7 +65,12 @@ app.get('/callback', (req, res) => {
       console.log(
         `Sucessfully retreived access token. Expires in ${expires_in} s.`
       );
-      res.send('Success! You can now close the window.');
+      // res.send('Success! You can now close the window.');
+      res.write('<p>Success! You can now close the window.</p>');
+      res.write(`<p><b>ACCESS TOKEN: </b> ${access_token}</p>`);
+      res.write(`<p><b>REFRESH TOKEN: </b> ${refresh_token}</p>`);
+      res.write(`<p>Expires in ${expires_in}</p>`);
+      res.end();
 
       setInterval(async () => {
         const data = await spotifyApi.refreshAccessToken();
