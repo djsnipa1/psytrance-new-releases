@@ -131,7 +131,7 @@ echo $'#bearings-auto:start
 function fish_prompt
     bearings prompt -s fish -e $status -d $CMD_DURATION -j (count (jobs -p))
 end
-#bearings-auto:end' | tee -a ~/.config/fish/config.fish
+#bearings-auto:end' | tee -a > ~/.config/fish/config.fish
 
 # install fonts 
 
