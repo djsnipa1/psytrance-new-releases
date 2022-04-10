@@ -24,11 +24,16 @@ const scopes = [
   'user-follow-read',
   'user-follow-modify'
 ];
+/* eslint-disable no-unused-vars */
+const SPOTIFY_CLIENT_ID = process.env.SPOTIFY_CLIENT_ID;
+const SPOTIFY_CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET;
+/* eslint-enable no-unused-vars */
 
 // credentials are optional
 var spotifyApi = new SpotifyWebApi({
-  clientId: 'cd93debbc2e642af891e43c26b1a30fd',
-  clientSecret: '3909a138960b4b6eac31172b7d8c0fc9',
+  // clientId: 'cd93debbc2e642af891e43c26b1a30fd',
+  clientId: SPOTIFY_CLIENT_ID,
+  clientSecret: SPOTIFY_CLIENT_SECRET,
   redirectUri: 'http://localhost:8888/callback'
 });
 
@@ -67,8 +72,8 @@ app.get('/callback', (req, res) => {
       );
       // res.send('Success! You can now close the window.');
       res.write('<p>Success! You can now close the window.</p>');
-      res.write(`<p><b>ACCESS TOKEN: </b> ${access_token}</p>`);
-      res.write(`<p><b>REFRESH TOKEN: </b> ${refresh_token}</p>`);
+      res.write(`<div><b>ACCESS TOKEN: </b><br /> <code>${access_token}</code></div>`);
+      res.write(`<div><b>REFRESH TOKEN: </b><br /> <code>${refresh_token}</code></div>`);
       res.write(`<p>Expires in ${expires_in}</p>`);
       res.end();
 
