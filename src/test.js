@@ -1,7 +1,7 @@
 const fetch = require('node-fetch');
 
 const SpotifyWebApi = require('spotify-web-api-node');
-const token = 'BQAPVU1mR5UHBx8gKSwYOxQrCBJ1YMz9KvRjOJMaV3p2psoFp-RDgfn-N8Kbc2s8_Q6MLyGFbc1Tn-z1F0Buht7dgVkD59LkiTnQVOUwsmiEDKto_jrKI6IQBeo7VG5kkBDekNVB5vZn4z1woaRC-UCSF6YgbWcD7NUWDhZ-rHB2A4sS8eFXqyrIkuPsX_S4TSv52R0lFxHsBBsxrUbZR-UaE086faxA7yI0nZE3BF1lca4-HGyTU7AHuvF1IHq52dzn1vmW3qGBOUZ7m5TKh2m_N1fxRm6YmKtfMR0DHazOrctsVFzx';
+const token = 'BQCwA1FJ6uCSWcjDLGBHCIrI4Do95KlnHgC7ferzGsnNJjPKPuceV1WPT8FpAkLCwgRnZnpfb00uC8Pj4I_d4SLcy_sXHq4yB86SPOce8qldjDLtrXPCCPgceSRsa8ZE8g1XVmde2sNuntSNFINRDBLtMGodA4D43g3R-KCL4_uXmAXJIWNh3HxnOcUfjP7AYtn-hEN1-tcJ9hWO_2jqrzhj7v7M3YxYL8-u8rrvLVsx_sllxtZ1Ah8Npy-BFYzQX6qfeEnxBdaTwpzuBIzESWLyxFDJ8SAUmTc9LRoAqTWU0r8GxpR-';
 
 const spotifyApi = new SpotifyWebApi();
 spotifyApi.setAccessToken(token);
