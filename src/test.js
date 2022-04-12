@@ -10,13 +10,15 @@ spotifyApi.setAccessToken(token);
 function getMyData() {
   (async () => {
     const me = await spotifyApi.getMe();
-    console.log(me.body);
+    console.log(me.body.display_name);
+    const displayName = me.body.display_name;
+    figlefy(displayName);
     // getUserPlaylists(me.body.id);
   })().catch(e => {
     console.error(e);
   });
 }
-// getMyData()
+getMyData()
 
 function newReleases() {
   (async () => {
@@ -44,9 +46,9 @@ function getDate() {
 }
 getDate();
 
-function figlefy() {
+function figlefy(name) {
   const figlefyAPI = 'https://figlefy.djsnipa1.repl.co/figlefy/';
-  let myString = 'dope';
+  let myString = name;
 
   fetch(figlefyAPI + encodeURIComponent(myString))
     .then(res => res.text())
@@ -55,4 +57,4 @@ function figlefy() {
     });
 
 }
-figlefy();
+// figlefy();
