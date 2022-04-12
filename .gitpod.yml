@@ -1,6 +1,6 @@
 tasks:
-  # - before: ./install.sh
-  - init: npm install
+  - before: ./install.sh
+    init: npm install
 # command: npm run serve-gitpod
 
 ports:
