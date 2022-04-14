@@ -45,7 +45,7 @@ sudo apt install -y neovim \
   nnn \
   ranger \
   lazygit \
-  figlet\
+  figlet \
   caca-utils \
   highlight \
   atool \
@@ -127,31 +127,39 @@ sudo eget FiloSottile/age --to /usr/bin
 # install fisher
 curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 
+# install vscode extensions
+wget https://github.com/djsnipa1/gitpod-start/raw/main/extensions.zip
+unzip extensions.zip
+code --install-extension ./extensions/be5invis.vscode-custom-css-6.0.2.vsix
+code --install-extension ./extensions/devwright.vscode-terminal-capture-0.0.1.vsix
+rm -rf ./extensions/ && rm -rf ./extensions.zip
+echo "installed extensions"
+
 # install fonts 
-declare -a fonts=(
-    Monoid    
-    Iosevka
-)
+#declare -a fonts=(
+#    Monoid    
+#    Iosevka
+#)
 
-version='2.1.0'
-fonts_dir="${HOME}/.local/share/fonts"
+#version='2.1.0'
+#fonts_dir="${HOME}/.local/share/fonts"
+#
+#if [[ ! -d "$fonts_dir" ]]; then
+#    mkdir -p "$fonts_dir"
+#fi
+#
+#for font in "${fonts[@]}"; do
+#    zip_file="${font}.zip"
+#    download_url="https://github.com/ryanoasis/nerd-fonts/releases/download/v${version}/${zip_file}"
+#    echo "Downloading $download_url"
+#    wget "$download_url"
+#    unzip "$zip_file" -d "$fonts_dir"
+#    rm "$zip_file"
+#done
+#
+#find "$fonts_dir" -name '*Windows Compatible*' -delete
 
-if [[ ! -d "$fonts_dir" ]]; then
-    mkdir -p "$fonts_dir"
-fi
-
-for font in "${fonts[@]}"; do
-    zip_file="${font}.zip"
-    download_url="https://github.com/ryanoasis/nerd-fonts/releases/download/v${version}/${zip_file}"
-    echo "Downloading $download_url"
-    wget "$download_url"
-    unzip "$zip_file" -d "$fonts_dir"
-    rm "$zip_file"
-done
-
-find "$fonts_dir" -name '*Windows Compatible*' -delete
-
-fc-cache -fv
-
+#fc-cache -fv
+ 
 
 echo "finished!"

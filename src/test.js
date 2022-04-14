@@ -1,7 +1,7 @@
 const fetch = require('node-fetch');
 
 const SpotifyWebApi = require('spotify-web-api-node');
-const token = 'BQCwA1FJ6uCSWcjDLGBHCIrI4Do95KlnHgC7ferzGsnNJjPKPuceV1WPT8FpAkLCwgRnZnpfb00uC8Pj4I_d4SLcy_sXHq4yB86SPOce8qldjDLtrXPCCPgceSRsa8ZE8g1XVmde2sNuntSNFINRDBLtMGodA4D43g3R-KCL4_uXmAXJIWNh3HxnOcUfjP7AYtn-hEN1-tcJ9hWO_2jqrzhj7v7M3YxYL8-u8rrvLVsx_sllxtZ1Ah8Npy-BFYzQX6qfeEnxBdaTwpzuBIzESWLyxFDJ8SAUmTc9LRoAqTWU0r8GxpR-';
+const token = 'BQB76DKTyVXQ8K7qWh2CiSO0oo09XX5rn0YnNQ_kXsFHVGFEZZwEsJlqGg6QNsBtw1gPOGW9o83UsgX0hmgYxXKP7PyfYlgrY1xDqmLjCD__BDmEDbhVJvJ4gT1pVMQ0ARRqVfeqUx8ASeUXaErr3H0VWd6Fc8mFcmQLUaPOCm9EKlzagkKJFMsy716sqSxB9PgRu8mUvWEBS0yeNRFFmM1QUNw8z6mlcK5J6WKiCb_EG-gtAp78bUtB_nN_1XHH73twTqgKxbwVIuXS4mmckjKmAdVId32F3byEHFd7fuVaets7xsvL';
 
 const spotifyApi = new SpotifyWebApi();
 spotifyApi.setAccessToken(token);
@@ -27,6 +27,7 @@ function newReleases() {
     const albums = newRel.body.albums;
     //for album in albums
     console.log(albums);
+    return albums;
   })().catch(e => {
     console.error(e);
   });
@@ -34,6 +35,18 @@ function newReleases() {
 
 // newReleases()
 
+function newReleasesAlbumTracks() {
+  let albums = newReleases();
+  // console.log(albums.items[0].artists)
+  let items = albums.items;
+  for (item in items) {
+    let artists = item.artists;
+    console.log(artists)
+  }
+  console.log(artists)
+
+}
+newReleasesAlbumTracks();
 function getDate() {
   var today = new Date();
   var dd = String(today.getDate()).padStart(2, '0');

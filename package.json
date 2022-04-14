@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node src/index.js",
     "test": "node src/test.js",
+    "login": "node src/spotify-login.js",
     "serve-gitpod": "browser-sync --watch --server --no-open --no-ui --listen 0.0.0.0",
     "serve": "browser-sync -f *.html -f *.js -f *.css"
   },
