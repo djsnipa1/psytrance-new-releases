@@ -9,9 +9,12 @@ sudo sed -i '50,$d' /etc/apt/sources.list
 sudo add-apt-repository -y ppa:neovim-ppa/stable
 # add lazygit 
 sudo add-apt-repository -y ppa:lazygit-team/release
+# add fish
+sudo add-apt-repository -y ppa:fish-shell/release-3
+
 sudo apt install -y software-properties-common
 sudo apt update -y
-sudo apt install -y neovim
+#sudo apt install -y neovim
 #sudo apt install -y python-dev python-pip python3-dev python3-pip
 #sudo apt autoremove -y
 
@@ -42,6 +45,7 @@ sudo apt update
 echo "updated apt"
 
 sudo apt install -y neovim \
+  fish \
   nnn \
   ranger \
   lazygit \
@@ -126,40 +130,5 @@ sudo eget FiloSottile/age --to /usr/bin
 
 # install fisher
 curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
-
-# install vscode extensions
-wget https://github.com/djsnipa1/gitpod-start/raw/main/extensions.zip
-unzip extensions.zip
-code --install-extension ./extensions/be5invis.vscode-custom-css-6.0.2.vsix
-code --install-extension ./extensions/devwright.vscode-terminal-capture-0.0.1.vsix
-rm -rf ./extensions/ && rm -rf ./extensions.zip
-echo "installed extensions"
-
-# install fonts 
-#declare -a fonts=(
-#    Monoid    
-#    Iosevka
-#)
-
-#version='2.1.0'
-#fonts_dir="${HOME}/.local/share/fonts"
-#
-#if [[ ! -d "$fonts_dir" ]]; then
-#    mkdir -p "$fonts_dir"
-#fi
-#
-#for font in "${fonts[@]}"; do
-#    zip_file="${font}.zip"
-#    download_url="https://github.com/ryanoasis/nerd-fonts/releases/download/v${version}/${zip_file}"
-#    echo "Downloading $download_url"
-#    wget "$download_url"
-#    unzip "$zip_file" -d "$fonts_dir"
-#    rm "$zip_file"
-#done
-#
-#find "$fonts_dir" -name '*Windows Compatible*' -delete
-
-#fc-cache -fv
- 
 
 echo "finished!"
