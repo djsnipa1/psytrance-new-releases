@@ -1,7 +1,11 @@
-var SpotifyWebApi = require('spotify-web-api-node');
+
+const SpotifyWebApi = require('spotify-web-api-node');
 const express = require('express');
+const open = require("open");
+
 
 // This file is copied from: https://github.com/thelinmichael/spotify-web-api-node/blob/master/examples/tutorial/00-get-access-token.js
+
 
 const scopes = [
   'ugc-image-upload',
@@ -25,8 +29,8 @@ const scopes = [
   'user-follow-modify'
 ];
 /* eslint-disable no-unused-vars */
-const SPOTIFY_CLIENT_ID = process.env.SPOTIFY_CLIENT_ID;
-const SPOTIFY_CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET;
+const SPOTIFY_CLIENT_ID = process.env['SPOTIFY_CLIENT_ID']
+const SPOTIFY_CLIENT_SECRET = process.env['SPOTIFY_CLIENT_SECRET']
 /* eslint-enable no-unused-vars */
 
 // credentials are optional
@@ -92,10 +96,11 @@ app.get('/callback', (req, res) => {
     });
 });
 
-app.listen(8888, () =>
-  console.log(
-    'HTTP Server up. Now go to http://localhost:8888/login in your browser.'
-  )
+app.listen(8888, () => {
+  console.log('HTTP Server up. Now go to http://localhost:8888/login in your browser.'),
+    console.log('yo')
+   //open('http://localhost:8888/login');
+}
 );
 
 

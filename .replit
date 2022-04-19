@@ -1,0 +1,3 @@
+#run = "PUPPETEER_EXECUTABLE_PATH=$(which chromium) DEBUG='puppeteer:*' node src/spotify-login.js"
+run = "node src/index.js"
+language = "nodejs"

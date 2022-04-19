@@ -6,8 +6,8 @@
   "scripts": {
     "start": "node src/index.js",
     "test": "node src/test.js",
-    "login": "node src/spotify-login.js",
-    "serve-gitpod": "browser-sync --watch --server --no-open --no-ui --listen 0.0.0.0",
+    "login": "node src/login.js",
+    "serve-gitpod": "browser-sync --watch --server  --no-ui --listen 0.0.0.0",
     "serve": "browser-sync -f *.html -f *.js -f *.css"
   },
   "repository": {
@@ -21,14 +21,21 @@
   },
   "homepage": "https://github.com/djsnipa1/psytrance-new-releases#readme",
   "dependencies": {
+    "cookie-session": "^2.0.0",
     "express": "^4.17.3",
     "node-fetch": "^2.6.7",
+    "open": "^8.4.0",
+    "passport": "^0.5.2",
+    "passport-spotify": "^2.0.0",
     "puppeteer": "^13.5.1",
     "spotify-web-api-node": "^5.0.2"
   },
   "devDependencies": {
     "@types/puppeteer": "^5.4.5",
-    "browser-sync": "^2.26.14",
-    "eslint": "^8.12.0"
+    "browse-url": "^1.1.2",
+    "browser-sync": "^2.27.9",
+    "eslint": "^8.12.0",
+    "icon_cleaner": "^0.1.1",
+    "opener": "^1.5.2"
   }
 }

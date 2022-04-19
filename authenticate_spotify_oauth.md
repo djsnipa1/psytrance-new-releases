@@ -83,18 +83,22 @@ Now let’s start integrating Spotify Authentication with our project. To do tha
 
 ```javascript
 const passport = require('passport');  
-const SpotifyStrategy = require('passport-spotify').Strategy;passport.serializeUser(function(user, done) {  
+const SpotifyStrategy = require('passport-spotify').Strategy;
+
+passport.serializeUser(function(user, done) {  
   done(null, user);  
-});passport.deserializeUser(function(user, done) {  
+});
+passport.deserializeUser(function(user, done) {  
   done(null, user);  
-});**passport.use(new SpotifyStrategy({  
+});
+passport.use(new SpotifyStrategy({  
   clientID: "720***********************1ad",  
   clientSecret: "9e*********************************cb",  
   callbackURL: "http://localhost:8000/auth/spotify/callback"  
 },  
-function(accessToken, refreshToken, profile, done) {  
+function(accessToken, refreshToken, profile, done) { 
   return done(null, profile);  
-}**  
+}
 ));
 ```
 
@@ -112,18 +116,29 @@ The route `/ath/error` will be called if any error has occurred during Spotify A
 const express = require('express')  
 const app = express()  
 const cookieSession = require('cookie-session')  
-**const passport = require('passport');  
-require('./passport')**app.use(cookieSession({  
+const passport = require('passport');  
+
+require('./passport')
+app.use(cookieSession({  
   name: 'spotify-auth-session',    
   keys: ['key1', 'key2']  
 }))  
-**app.use(passport.initialize());  
-app.use(passport.session());****app.get('/',(req,res)=>{  
+
+app.use(passport.initialize());  
+app.use(passport.session());
+
+app.get('/',(req,res)=>{  
   res.send(`Hello world ${req.user.displayName}`)  
-})****app.get('/auth/error', (req, res) => res.send('Unknown Error'))****app.get('/auth/spotify',passport.authenticate('spotify'));****app.get('/auth/spotify/callback',passport.authenticate('spotify', { failureRedirect: '/auth/error' }),  
-function(req, res) {  
-  res.redirect('/');  
-});**app.listen(8000,()=>{  
+})
+
+app.get('/auth/error', (req, res) => res.send('Unknown Error'))
+  app.get('/auth/spotify',passport.authenticate('spotify'));
+  app.get('/auth/spotify/callback',passport.authenticate('spotify', { failureRedirect: '/auth/error' }),  
+  function(req, res) {  
+    res.redirect('/');  
+});
+
+app.listen(8000,()=>{  
     console.log('Serve is up and running at the port 8000')  
 })
 ```
@@ -154,7 +169,7 @@ Now let’s create a function for logout. Just by calling the function `req.logo
 `index.js`
 
 ```javascript
-const isLoggedIn = require('./Middleware/auth')app.get('/',**isLoggedIn**,(req,res)=>{  
+const isLoggedIn = require('./Middleware/auth')app.get('/', isLoggedIn,(req,res)=>{  
     res.send(`Hello world ${req.user.displayName}`)  
 })app.get('/logout', (req, res) => {  
   req.session = null;  
