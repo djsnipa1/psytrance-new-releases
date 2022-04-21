@@ -18,6 +18,8 @@ app.get('/',(req,res)=>{
 })
 */
 
+app.use(express.static(__dirname + '/img'))
+
 app.get('/auth/error', (req, res) => res.send('Unknown Error'))
   app.get('/auth/spotify',passport.authenticate('spotify'))
     app.get('/auth/spotify/callback',passport.authenticate('spotify', { failureRedirect: '/auth/error' }),  

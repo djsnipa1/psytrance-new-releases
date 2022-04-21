@@ -8,7 +8,9 @@
     "test": "node src/test.js",
     "login": "node src/login.js",
     "serve-gitpod": "browser-sync --watch --server  --no-ui --listen 0.0.0.0",
-    "serve": "browser-sync -f *.html -f *.js -f *.css"
+    "serve": "browser-sync -f *.html -f *.js -f *.css",
+    "icon": "node icon_cleaner src/img",
+    "htmlmini": "html-minifier --collapse-boolean-attributes --collapse-inline-tag-whitespace --collapse-whitespace --conservative-collapse --decode-entities --minify-css --minify-js --minify-urls --no-include-auto-generated-tags --prevent-attributes-escaping --process-conditional-comments --remove-attribute-quotes --remove-comments --remove-empty-attributes --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-style-link-type-attributes --sort-attributes --sort-class-name --trim-custom-fragments --use-short-doctype --input-dir src/html/ --output-dir src/dist/"
   },
   "repository": {
     "type": "git",
@@ -35,6 +37,7 @@
     "browse-url": "^1.1.2",
     "browser-sync": "^2.27.9",
     "eslint": "^8.12.0",
+    "html-minifier": "^4.0.0",
     "icon_cleaner": "^0.1.1",
     "opener": "^1.5.2"
   }
