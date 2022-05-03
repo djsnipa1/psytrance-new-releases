@@ -131,4 +131,7 @@ sudo eget FiloSottile/age --to /usr/bin
 # install fisher
 curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 
+# install web3.storage
+npm install -g @web3-storage/w3
+
 echo "finished!"
